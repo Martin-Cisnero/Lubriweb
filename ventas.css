@@ -1,0 +1,558 @@
+/* =========================================
+   ESTILOS GENERALES - VENTAS LUBRIMEC
+   ========================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f4f4f4;
+    background-image: url("Fondo-Catalogo-Claro.jpg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: #111111;
+    padding: 20px 16px;
+}
+
+#contenedor-ventas {
+    max-width: 1140px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    border: 1px solid #dcdcdc;
+    border-radius: 10px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+    padding: 0 24px 24px 24px;
+}
+
+/* Encabezado fijo */
+#encabezado-ventas {
+    position: sticky;
+    top: 0;
+    z-index: 150;
+    background-color: #ffffff;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    border-bottom: 3px solid #1520a6;
+    padding: 18px 0 14px 0;
+    margin-bottom: 22px;
+}
+
+#titulo-ventas {
+    font-size: 1.55rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #111111;
+    background: linear-gradient(to bottom, #1520a6 50%, #ff0000 50%) left / 5px 100% no-repeat;
+    padding-left: 14px;
+}
+
+#controles-encabezado-ventas {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+#btn-volver-admin {
+    display: inline-flex;
+    align-items: center;
+    padding: 8px 14px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-decoration: none;
+    border-radius: 6px;
+    background-color: #f4f4f4;
+    color: #1520a6;
+    border: 2px solid #1520a6;
+    transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+#btn-volver-admin:hover {
+    background-color: #1520a6;
+    color: #ffffff;
+}
+
+#btn-tema-ventas {
+    background: none;
+    border: 2px solid #1520a6;
+    border-radius: 50%;
+    width: 34px;
+    height: 34px;
+    font-size: 1rem;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #111111;
+    transition: background-color 0.25s ease;
+}
+
+#btn-tema-ventas:hover {
+    background-color: #f0f0f0;
+}
+
+/* Bloques principales */
+#vista-login-ventas,
+#bloque-cargar-venta {
+    border: 1px solid #dcdcdc;
+    border-left: 5px solid #1520a6;
+    background-color: #fafafa;
+    border-radius: 8px;
+    padding: 18px;
+    margin-bottom: 20px;
+}
+
+#barra-sesion-ventas {
+    padding: 12px 16px;
+    margin-bottom: 18px;
+    border: 1px solid #dcdcdc;
+    border-radius: 8px;
+    background-color: #f4f4f4;
+}
+
+h2 {
+    font-size: 1.35rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #111111;
+    border-bottom: 3px solid #1520a6;
+    padding-bottom: 6px;
+    margin-bottom: 14px;
+}
+
+/* Formularios e inputs */
+.campo-form {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-bottom: 14px;
+}
+
+label {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #222222;
+}
+
+input:not([type="checkbox"]),
+select {
+    width: 100%;
+    padding: 10px 12px;
+    font-size: 0.95rem;
+    background-color: #ffffff;
+    color: #111111;
+    border: 2px solid #1520a6;
+    border-radius: 6px;
+}
+
+input:not([type="checkbox"]):focus,
+select:focus {
+    outline: none;
+    border-color: #b71c1c;
+}
+
+.input-venta-num {
+    width: 110px !important;
+    padding: 6px 8px !important;
+    font-size: 0.88rem !important;
+}
+
+/* Lista seleccionable de productos (Escritorio) */
+#lista-productos-venta {
+    max-height: 360px;
+    overflow-y: auto;
+    border: 1px solid #dcdcdc;
+    border-radius: 8px;
+    background-color: #ffffff;
+    padding: 8px;
+    margin-bottom: 14px;
+}
+
+.fila-producto-venta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 10px 8px;
+    border-bottom: 1px solid #e6e6e6;
+}
+
+.fila-producto-venta:last-child {
+    border-bottom: none;
+}
+
+.fila-producto-venta:hover {
+    background-color: rgba(21, 32, 166, 0.04);
+}
+
+.label-prod-escritorio {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    margin: 0;
+}
+
+.controles-item-venta {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.label-control-venta {
+    font-size: 0.8rem;
+    margin: 0;
+}
+
+/* Elementos exclusivos de tarjeta móvil ocultos en escritorio */
+.venta-card-superior,
+.venta-card-producto,
+.venta-card-cantidad-fila,
+.venta-card-inferior {
+    display: none;
+}
+
+/* =========================================
+   TARJETAS VENTAS SOLO EN CELULARES
+   ========================================= */
+@media (max-width: 768px) {
+    #lista-productos-venta {
+        max-height: 520px;
+        background-color: transparent;
+        border: none;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+    }
+
+    .fila-producto-venta {
+        background-color: #ffffff;
+        border: 1.5px solid #dcdcdc;
+        border-radius: 12px;
+        padding: 14px;
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+        transition: border-color 0.2s ease, background-color 0.2s ease;
+    }
+
+    .fila-producto-venta:last-child {
+        border-bottom: 1.5px solid #dcdcdc;
+    }
+
+    .fila-producto-venta.seleccionada {
+        border-color: #1520a6;
+        background-color: rgba(21, 32, 166, 0.03);
+    }
+
+    /* Ocultar vista horizontal de escritorio */
+    .label-prod-escritorio,
+    .controles-item-venta {
+        display: none;
+    }
+
+    /* Mostrar estructura de tarjeta de venta.png */
+    .venta-card-superior {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 6px;
+    }
+
+    .venta-card-foto {
+        width: 130px;
+        height: 115px;
+        border: 1px solid #d5d5d5;
+        border-radius: 8px;
+        padding: 6px;
+        background-color: #ffffff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .venta-card-foto img {
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: contain;
+        display: block;
+    }
+
+    .venta-card-codigo {
+        font-size: 0.82rem;
+        font-weight: 700;
+        color: #555555;
+        text-align: center;
+    }
+
+    .venta-card-producto {
+        display: block;
+        font-size: 1.05rem;
+        font-weight: 700;
+        line-height: 1.3;
+        color: #111111;
+    }
+
+    .venta-card-producto small {
+        display: block;
+        font-size: 0.8rem;
+        font-weight: 600;
+        color: #555555;
+        margin-top: 2px;
+    }
+
+    .venta-card-cantidad-fila {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+    }
+
+    .venta-card-cantidad-fila label {
+        font-size: 0.92rem;
+        margin: 0;
+    }
+
+    .venta-card-cantidad-fila .input-venta-cant {
+        width: 115px !important;
+        padding: 7px 10px !important;
+        font-size: 0.95rem !important;
+    }
+
+    .venta-card-inferior {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        margin-top: 2px;
+    }
+
+    .venta-card-precio-wrap {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+    }
+
+    .venta-card-precio-wrap span {
+        font-weight: 700;
+        font-size: 1rem;
+    }
+
+    .venta-card-precio-wrap .input-venta-precio {
+        width: 100% !important;
+        padding: 8px 10px !important;
+        font-size: 0.95rem !important;
+    }
+
+    .btn-selec-venta {
+        padding: 8px 14px !important;
+        border-radius: 8px !important;
+        border: 2px solid #1520a6 !important;
+        background-color: #ffffff !important;
+        color: #1520a6 !important;
+        font-size: 0.88rem !important;
+        font-weight: 700 !important;
+        white-space: nowrap;
+        flex-shrink: 0;
+    }
+
+    .btn-selec-venta.activo {
+        background-color: #1520a6 !important;
+        color: #ffffff !important;
+    }
+
+    body.dark-mode .fila-producto-venta {
+        background-color: #1e1e1e;
+        border-color: #333333;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.45);
+    }
+
+    body.dark-mode .fila-producto-venta:last-child {
+        border-bottom-color: #333333;
+    }
+
+    body.dark-mode .fila-producto-venta.seleccionada {
+        border-color: #3a4cff;
+        background-color: rgba(58, 76, 255, 0.12);
+    }
+
+    body.dark-mode .venta-card-codigo,
+    body.dark-mode .venta-card-producto small {
+        color: #bbbbbb;
+    }
+
+    body.dark-mode .venta-card-producto {
+        color: #ffffff;
+    }
+
+    body.dark-mode .btn-selec-venta {
+        background-color: #282828 !important;
+        border-color: #3a4cff !important;
+        color: #ffffff !important;
+    }
+
+    body.dark-mode .btn-selec-venta.activo {
+        background-color: #1520a6 !important;
+        border-color: #6b7cff !important;
+        color: #ffffff !important;
+    }
+}
+
+/* Total y botones */
+#total-venta-texto {
+    font-weight: 700;
+    font-size: 1.2rem;
+    margin: 14px 0;
+    color: #1520a6;
+}
+
+button:not(#btn-tema-ventas):not(#btn-cerrar-mensaje-ventas) {
+    padding: 10px 18px;
+    font-size: 0.95rem;
+    font-weight: 700;
+    cursor: pointer;
+    border: none;
+    border-radius: 6px;
+    background-color: #1520a6;
+    color: #ffffff;
+    transition: background-color 0.25s ease;
+}
+
+button:not(#btn-tema-ventas):not(#btn-cerrar-mensaje-ventas):hover:not(:disabled) {
+    background-color: #b71c1c;
+}
+
+#btn-registrar-venta {
+    background-color: #25d366;
+    color: #111111;
+    text-transform: uppercase;
+}
+
+#btn-registrar-venta:hover:not(:disabled) {
+    background-color: #1ebe57;
+    color: #111111;
+}
+
+#btn-logout-ventas {
+    background-color: #b71c1c;
+}
+
+button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Mensaje de estado */
+#estado-mensaje-ventas {
+    position: sticky;
+    bottom: 14px;
+    margin-top: 16px;
+    padding: 12px 16px;
+    border-radius: 8px;
+    background-color: #1520a6;
+    color: #ffffff;
+    border-left: 5px solid #b71c1c;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    z-index: 300;
+}
+
+#btn-cerrar-mensaje-ventas {
+    padding: 2px 8px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 4px;
+    background: transparent;
+    color: #ffffff;
+}
+
+/* =========================================
+   MODO OSCURO (IGUAL QUE STYLE.CSS)
+   ========================================= */
+body.dark-mode {
+    background-color: #181818;
+    background-image: url("Fondo-Catalogo-Oscuro.jpg");
+    color: #ffffff;
+}
+
+body.dark-mode #contenedor-ventas {
+    background-color: #1e1e1e;
+    border-color: #333333;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.45);
+}
+
+body.dark-mode #encabezado-ventas {
+    background-color: #1e1e1e;
+}
+
+body.dark-mode #titulo-ventas,
+body.dark-mode h2 {
+    color: #ffffff;
+}
+
+body.dark-mode #btn-volver-admin {
+    background-color: #282828;
+    color: #ffffff;
+    border-color: #3a4cff;
+}
+
+body.dark-mode #btn-tema-ventas {
+    border-color: #ffffff;
+    color: #ffffff;
+}
+
+body.dark-mode #btn-tema-ventas:hover {
+    background-color: #2a2a2a;
+}
+
+body.dark-mode #vista-login-ventas,
+body.dark-mode #bloque-cargar-venta,
+body.dark-mode #barra-sesion-ventas {
+    background-color: #242424;
+    border-color: #333333;
+}
+
+body.dark-mode label {
+    color: #e0e0e0;
+}
+
+body.dark-mode input:not([type="checkbox"]),
+body.dark-mode select {
+    background-color: #282828;
+    color: #ffffff;
+    border-color: #3a4cff;
+}
+
+body.dark-mode #lista-productos-venta {
+    background-color: #1e1e1e;
+    border-color: #333333;
+}
+
+body.dark-mode .fila-producto-venta {
+    border-bottom-color: #2e2e2e;
+}
+
+body.dark-mode .fila-producto-venta:hover {
+    background-color: rgba(255, 255, 255, 0.04);
+}
+
+body.dark-mode #total-venta-texto {
+    color: #6b7cff;
+}

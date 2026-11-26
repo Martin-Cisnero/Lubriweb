@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lubrimec</title>
+    <link rel="icon" type="image/png" href="Favicon-Lubrimec.png">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="logo-container">
+            <a href="#inicio">
+                <img src="Lubrimec-Logo-Fondo-Transparente.png" alt="Logo Lubrimec Repuestos" class="logo">
+            </a>
+        </div>
+
+        <nav class="nav-links" id="nav-links">
+            <ul>
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#catalogo">Catálogo</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+                <li><a href="#ubicacion">Ubicación</a></li>
+            </ul>
+        </nav>
+
+        <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Activar o desactivar modo oscuro">
+            🌙
+        </button>
+
+        <a href="admin.html" class="admin-toggle" id="admin-toggle" title="Panel de administración" aria-label="Ir al panel de administración">
+            ✪
+        </a>
+
+        <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menú">
+            ☰
+        </button>
+    </header>
+
+    <main>
+        <!--Sección de inicio con frase y logo-->
+        <section id="inicio" class="seccion seccion-inicio">
+            <div class="inicio-contenido">
+                <p class="frase-inicio" data-seccion="inicio" data-campo="descripcion">Mantené tu auto sano hoy para evitar dolores de cabeza mañana.</p>
+                <div class="inicio-imagen">
+                    <img src="Lubrimec-Logo-Fondo-Transparente-Sombra-Blanca.png" alt="Logo Lubrimec Repuestos">
+                </div>
+            </div>
+        </section>
+
+        <!--Sección Catálogo-->
+        <section id="catalogo" class="seccion seccion-catalogo">
+            <div class="catalogo-contenedor">
+                <div class="catalogo-encabezado">
+                    <h2>Catálogo</h2>
+                    <div class="catalogo-controles">
+                        <input type="search" id="buscador-catalogo" class="catalogo-buscador" placeholder="Buscar por código, nombre o vehículo...">
+                        <select id="filtro-categoria" class="catalogo-select" aria-label="Filtrar por categoría">
+                            <option value="todas">Todas las categorías</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Vista Tabla (Escritorio) -->
+                <div class="tabla-catalogo-wrapper">
+                    <table class="tabla-catalogo">
+                        <thead>
+                            <tr>
+                                <th>Imagen</th>
+                                <th>Código</th>
+                                <th>Marca</th>
+                                <th>Producto</th>
+                                <th>Descripción</th>
+                                <th>Categoría</th>
+                                <th>Stock</th>
+                                <th>Acción</th>
+                            </tr>
+                        </thead>
+                        <tbody id="catalogo-tbody">
+                            <tr>
+                                <td colspan="8" class="catalogo-estado">Cargando catálogo...</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Vista Tarjetas (Solo Celulares) -->
+                <div id="catalogo-cards-movil" class="catalogo-cards-movil" aria-label="Catálogo en tarjetas"></div>
+
+                <nav id="paginacion-catalogo" class="paginacion-catalogo" aria-label="Paginación del catálogo"></nav>
+            </div>
+        </section>
+
+        <!--Sección Contacto-->
+        <section id="contacto" class="seccion seccion-contacto">
+            <div class="contacto-contenedor">
+                <h2 data-seccion="contacto" data-campo="titulo">Contacto</h2>
+                <p class="contacto-intro" data-seccion="contacto" data-campo="descripcion">Te Interesa algún producto o tenés alguna consulta? Estamos aquí para ayudarte.</p>
+                <p><strong>Teléfono / WhatsApp:</strong> <span data-seccion="contacto" data-campo="telefono">+54 9 3795 168999</span></p>
+
+                <div class="contacto-datos">
+                    <a href="https://wa.me/5493795168999?text=Hola%20Lubrimec%2C%20quisiera%20hacer%20una%20consulta." target="_blank" rel="noopener noreferrer" class="btn-whatsapp">
+                        Escribir por WhatsApp
+                    </a>
+                </div>
+
+                <form class="contacto-form" id="form-contacto">
+                    <label for="nombre">Nombre</label>
+                    <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required>
+
+                    <label for="mensaje">Consulta</label>
+                    <textarea id="mensaje" name="mensaje" rows="4" placeholder="¿Qué lubricante o repuesto necesitás?" required></textarea>
+
+                    <button type="submit" class="btn-enviar">Enviar consulta</button>
+                </form>
+            </div>
+        </section>
+
+        <!--Sección Ubicación-->
+        <section id="ubicacion" class="seccion seccion-ubicacion">
+            <div class="ubicacion-contenedor">
+                <div class="ubicacion-info">
+                    <h2 data-seccion="ubicacion" data-campo="titulo">Ubicación</h2>
+                    <p class="ubicacion-direccion"><strong>Dirección:</strong> <span data-seccion="ubicacion" data-campo="direccion">Corrientes Capital Barrio Pirayui.</span></p>
+                    <p class="ubicacion-horarios"><strong>Horarios:</strong> <span data-seccion="ubicacion" data-campo="horarios">Lun a Vie de 9:00 a 18:00 hs · Sáb de 9:00 a 15:00 hs</span></p>
+                    <a href="https://www.google.com/maps/place/LUBRIMEC+(Lubricantes+y+Repuestos+en+gral)/@-27.5054119,-58.7859462,19z/data=!3m1!4b1!4m6!3m5!1s0x94456be16a2d636b:0x1ceaee4e339a9ace!8m2!3d-27.5054119!4d-58.7853025!16s%2Fg%2F11qqysvbl1?entry=ttu&g_ep=EgoyMDI2MTExOC4xIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer" class="btn-mapa">
+                        Cómo llegar
+                    </a>
+                </div>
+                <div class="ubicacion-mapa">
+                    <iframe
+                        src="https://www.google.com/maps?q=Lubrimec,Corrientes,Argentina&output=embed"
+                        title="Mapa de ubicación de Lubrimec"
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Pop-up Detalle de Producto (Móvil) -->
+    <div id="modal-producto-publico" class="modal-producto-publico" style="display: none;" role="dialog" aria-modal="true" aria-labelledby="modal-prod-titulo">
+        <div class="modal-producto-contenido">
+            <div class="modal-producto-encabezado">
+                <h3 id="modal-prod-titulo">Detalle del producto</h3>
+                <button type="button" id="btn-cerrar-modal-prod" class="btn-cerrar-modal-prod" aria-label="Cerrar detalle">×</button>
+            </div>
+            <div id="modal-producto-cuerpo" class="modal-producto-cuerpo"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
