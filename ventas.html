@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Ventas</title>
+    <link rel="icon" type="image/png" href="Favicon-Lubrimec.png">
+    <link rel="stylesheet" href="ventas.css">
+</head>
+<body id="cuerpo-ventas">
+    <main id="contenedor-ventas">
+        <header id="encabezado-ventas">
+            <h1 id="titulo-ventas">Página de Ventas</h1>
+            <div id="controles-encabezado-ventas">
+                <a href="admin.html" id="btn-volver-admin" role="button" aria-label="Volver al panel de administración">Panel Admin</a>
+                <button type="button" id="btn-tema-ventas" aria-label="Alternar modo claro u oscuro">🌙</button>
+                <button type="button" id="btn-logout-ventas" style="display: none;">Cerrar sesión</button>
+            </div>
+        </header>
+
+        <section id="vista-login-ventas">
+            <h2>Iniciar sesión</h2>
+            <form id="form-login-ventas">
+                <div class="campo-form">
+                    <label for="email-ventas">Correo electrónico</label>
+                    <input type="email" id="email-ventas" required placeholder="admin@lubrimec.com">
+                </div>
+                <div class="campo-form">
+                    <label for="password-ventas">Contraseña</label>
+                    <input type="password" id="password-ventas" required placeholder="Tu contraseña">
+                </div>
+                <button type="submit">Entrar</button>
+            </form>
+        </section>
+
+        <section id="vista-panel-ventas" style="display: none;">
+            <div id="barra-sesion-ventas">
+                <div>
+                    <strong>Sesión activa:</strong> <span id="usuario-correo-ventas"></span>
+                </div>
+            </div>
+
+            <section id="bloque-cargar-venta">
+                <h2>Cargar venta</h2>
+                <form id="form-venta">
+                    <div class="campo-form">
+                        <label for="buscador-productos-venta">Buscar producto</label>
+                        <input type="search" id="buscador-productos-venta" placeholder="Buscar por código, marca, producto o vehículo...">
+                    </div>
+
+                    <div id="lista-productos-venta"></div>
+
+                    <div class="campo-form">
+                        <label for="metodo-pago">Método de pago</label>
+                        <select id="metodo-pago" required>
+                            <option value="Efectivo">Efectivo</option>
+                            <option value="Transferencia">Transferencia</option>
+                            <option value="Tarjeta de débito">Tarjeta de débito</option>
+                            <option value="Tarjeta de crédito">Tarjeta de crédito</option>
+                            <option value="Mercado Pago">Mercado Pago</option>
+                        </select>
+                    </div>
+
+                    <div id="total-venta-texto">Total: $ 0,00</div>
+                    <button type="submit" id="btn-registrar-venta">Guardar venta</button>
+                </form>
+            </section>
+        </section>
+
+        <div id="estado-mensaje-ventas" style="display: none;">
+            <span id="estado-mensaje-texto-ventas"></span>
+            <button type="button" id="btn-cerrar-mensaje-ventas" aria-label="Cerrar mensaje">×</button>
+        </div>
+    </main>
+
+    <script>
+        window.LUBRIMEC_SUPABASE = {
+            url: 'https://mjvqjbfqcyajppsttdrg.supabase.co',
+            anonKey: 'sb_publishable_GX-biMYHvxoyVCmzJrdBIw_Mx45BB6W'
+        };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="ventas.js"></script>
+</body>
+</html>
